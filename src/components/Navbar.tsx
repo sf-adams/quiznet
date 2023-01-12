@@ -5,7 +5,9 @@ type Props = {};
 function Navbar({}: Props) {
   return (
     <header>
-      <a href="/">Haikupad</a>
+      <a className="logo" href="/">
+        Haikupad
+      </a>
     </header>
   );
 }

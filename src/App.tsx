@@ -7,6 +7,16 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+
+      <section>
+        <form action="">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </form>
+        <button>Save</button>
+        <button>Share</button>
+      </section>
     </div>
   );
 }

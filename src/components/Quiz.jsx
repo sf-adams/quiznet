@@ -10,7 +10,7 @@ const Quiz = ({ questions }) => {
 
   const { question, choices, correctAnswer } = questions[currentQuestion];
 
-  const onAnwswerClick = (answer, index) => {
+  const onAnswerClick = (answer, index) => {
     setAnswerIdx(index);
     if (answer === correctAnswer) {
       setAnswer(true);
@@ -57,7 +57,7 @@ const Quiz = ({ questions }) => {
           <ul>
             {choices.map((choice, index) => (
               <li
-                onClick={() => onAnwswerClick(choice, index)}
+                onClick={() => onAnswerClick(choice, index)}
                 key={choice}
                 className={answerIdx === index ? "selected-answer" : null}
               >

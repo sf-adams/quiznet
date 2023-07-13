@@ -39,8 +39,6 @@ After completing that step, in the command line:
 4. Run the project with `npm start`
 5. Quiz time!
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ADDING QUESTIONS -->
 
 <!-- ## Adding Questions
@@ -55,23 +53,17 @@ Once you finish your setup, you can put your own version of Quiznet online to sh
 
 I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- AUTHOR/CONTACT -->
 
 ## Author
 
 Sam Adams - [GitHub](https://github.com/sf-adams/) · [LinkedIn](https://www.linkedin.com/in/sf-adams/) · [Email](mailto:contact@sf-adams.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
@@ -84,4 +76,4 @@ Other inspiration and references include:
 - [FreeCodeCamp Developer Quiz](https://developerquiz.org/)
 - [Dribbble Quiz Design](https://dribbble.com/shots/17815087-Audible-Utility-Quiz)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>

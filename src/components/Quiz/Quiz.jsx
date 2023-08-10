@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { resultInitalState } from "../data/result-state";
+import { resultInitalState } from "../../data/result-state";
 
 const Quiz = ({ questions }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);

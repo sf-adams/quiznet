@@ -1,24 +1,6 @@
-$primary: #150080;
-$accent: #d08642;
-$bg: #ffffff;
-$bg-accent: #e7e8e9;
-$disabled: #9c9c9c;
-$foreground: #2d264b;
-
-body {
-  font-family: monospace;
-  background: linear-gradient(0deg, $primary 0.03%, $accent);
-  color: $foreground;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 0 30px;
-  height: 100vh;
-}
-
 .quiz-container {
   width: 500px;
-  background: $bg;
+  background: clr(neutral, 100);
   border-radius: 4px;
   margin-top: 100px;
   padding: 30px 60px;
@@ -27,13 +9,13 @@ body {
   .active-question-no {
     font-size: 32px;
     font-weight: 500;
-    color: $primary;
+    color: clr(primary, 400);
   }
 
   .total-question {
     font-size: 16px;
     font-weight: 500;
-    color: $disabled;
+    color: clr(neutral, 400);
   }
 
   h2 {
@@ -49,10 +31,10 @@ body {
     li {
       text-decoration: none;
       list-style: none;
-      color: $foreground;
+      color: clr(primary, 600);
       font-size: 16px;
-      background: $bg;
-      border: 1px solid $disabled;
+      background: clr(neutral, 100);
+      border: 1px solid clr(neutral, 200);
       border-radius: 16px;
       padding: 11px;
       margin-top: 15px;
@@ -60,9 +42,9 @@ body {
     }
 
     .selected-answer {
-      background: $primary;
-      border: 1px solid $accent;
-      color: $bg;
+      background: clr(primary, 400);
+      border: 1px solid clr(accent, 400);
+      color: clr(neutral, 900);
     }
   }
 
@@ -72,10 +54,10 @@ body {
   }
 
   button {
-    background: linear-gradient(0deg, $primary 0.03%, $accent);
+    background: linear-gradient(0deg, clr(primary, 400) 0.03%, clr(accent, 400));
     border-radius: 9px;
     font-size: 18px;
-    color: $bg;
+    color: clr(neutral, 100);
     padding: 10px 42px;
     outline: none;
     border: none;
@@ -83,8 +65,8 @@ body {
     cursor: pointer;
 
     &:disabled {
-      background: $bg-accent;
-      color: $disabled;
+      background: clr(neutral, 400);
+      color: clr(neutral, 200);
       cursor: not-allowed;
     }
   }
@@ -103,7 +85,7 @@ body {
       font-weight: 500;
 
       span {
-        color: $primary;
+        color: clr(primary, 500);
         font-size: 22px;
       }
     }

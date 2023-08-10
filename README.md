@@ -9,17 +9,27 @@
 
 <!-- BACKGROUND -->
 
-Programming is a journey in lifelong learning. **Quiznet** is an application that aims to help make this as easy as possible. It can either be used with the premade questions, or JSON files of your own.
+**Quiznet** is an application that aims to help programmers grow and maintain the wide range of information they need in a fun and as easy way. It can either be used with the premade questions, or JSON files of your own.
 
 <!-- Hopefully there is a question or two in there that you didn't already know. If there's something that you'd recommend being added, please go to the [contribution](#contributing) section. -->
 
+<!-- SCREENSHOT -->
+
+<!-- ![](./screenshot.jpg) -->
+
 <!-- FEATURES -->
 
-## Features
+## Roadmap
 
+- [ ] Start page
 - [x] Questions for JavaScript and React.js
 - [ ] Topic Selector
 - [ ] Timer
+- [ ] Results page with graphs
+- [ ] Choose how many questions/topic
+- [ ] Share results
+- [ ] Fully tested
+- [ ] Mobile responsive
 
 See the [open issues](https://github.com/sf-adams/quiznet/issues) for a full list of proposed features (and known issues).
 
@@ -39,25 +49,26 @@ After completing that step, in the command line:
 4. Run the project with `npm start`
 5. Quiz time!
 
-<!-- ADDING QUESTIONS -->
-
-<!-- ## Adding Questions
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- DEPLOYMENT -->
-
-## Deployment
-
-Once you finish your setup, you can put your own version of Quiznet online to share with friends and colleagues!
-
-I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
-
 <!-- AUTHOR/CONTACT -->
 
 ## Author
 
-Sam Adams - [GitHub](https://github.com/sf-adams/) · [LinkedIn](https://www.linkedin.com/in/sf-adams/) · [Email](mailto:contact@sf-adams.com)
+[![Website][website-shield]][website-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Medium][medium-shield]][medium-url]
+[![Codepen][codepen-shield]][codepen-url]
+[![GitHub][github-shield]][github-url]
+
+[website-shield]: https://img.shields.io/badge/Sam%20Adams-FFD300?style=for-the-badge&logo=aboutdotme&logoColor=242424
+[website-url]: https://sf-adams.com
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-FFD300?style=for-the-badge&logo=linkedin&logoColor=242424
+[linkedin-url]: https://linkedin.com/in/sf-adams
+[medium-shield]: https://img.shields.io/badge/Medium-FFD300?style=for-the-badge&logo=medium&logoColor=242424
+[medium-url]: https://medium.com/@sf-adams
+[codepen-shield]: https://img.shields.io/badge/CodePen-FFD300?style=for-the-badge&logo=codepen&logoColor=242424
+[codepen-url]: https://codepen.io/sf-adams
+[github-shield]: https://img.shields.io/badge/GitHub-FFD300?style=for-the-badge&logo=github&logoColor=242424
+[github-url]: https://github.io/sf-adams
 
 <!-- LICENSE -->
 

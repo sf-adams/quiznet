@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import { decode } from "html-entities";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [quizStarted, setQuizStarted] = useState(false);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function fetchQuestions() {
+      try {
+        const response = await fetch(
+          "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchQuestions();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {quizStarted && data && data.results ? (
+        data.results.map((question, index) => (
+          <div key={index}>
+            <h2>{decode(question.question)}</h2>
+            <p>{decode(question.correct_answer)}</p>
+            <hr />
+          </div>
+        ))
+      ) : (
+        <div>
+          <h1>Quiznet</h1>
+          <p>Testing mental mettle.</p>
+          <button onClick={() => setQuizStarted(true)}>Start quiz</button>
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -86,5 +86,7 @@ Other inspiration and references include:
 
 - [FreeCodeCamp Developer Quiz](https://developerquiz.org/)
 - [Dribbble Quiz Design](https://dribbble.com/shots/17815087-Audible-Utility-Quiz)
+- [he](https://www.npmjs.com/package/he) and [html-entities](https://www.npmjs.com/package/html-entities)
+- [Open Trivia API](https://opentdb.com/api_config.php)
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>

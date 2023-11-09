@@ -1,0 +1,36 @@
+.start {
+  color: #293264;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.start__title {
+  font-size: 2.5rem;
+}
+
+.start__text {
+  font-size: 1.25rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.start__button {
+  margin-top: 2rem;
+  background-color: #4d5b9e;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: #f5f7fb;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out, opacity 250ms ease-in-out;
+}
+
+.start__button:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}

@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { decode } from "html-entities";
+import BlobBlue from "./assets/blob-blue.svg";
+import BlobYellow from "./assets/blob-yellow.svg";
+import StartScreen from "./components/StartScreen";
 
 function App() {
   const [quizStarted, setQuizStarted] = useState(false);
+  const [quizEnded, setQuizEnded] = useState(false);
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -26,7 +30,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <main>
+      <img className="blob-blue" src={BlobBlue} alt="Blue Blob" />
+      <img className="blob-yellow" src={BlobYellow} alt="Yellow Blob" />
       {quizStarted && data && data.results ? (
         data.results.map((question, index) => (
           <div key={index}>
@@ -36,13 +42,9 @@ function App() {
           </div>
         ))
       ) : (
-        <div>
-          <h1>Quiznet</h1>
-          <p>Testing mental mettle.</p>
-          <button onClick={() => setQuizStarted(true)}>Start quiz</button>
-        </div>
+        <StartScreen setQuizStarted={setQuizStarted}/>
       )}
-    </>
+    </main>
   );
 }
 

@@ -17,6 +17,25 @@ main {
   text-align: center;
 }
 
+.button {
+  margin-top: 2rem;
+  background-color: #4d5b9e;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: #f5f7fb;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out, opacity 250ms ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
 .blob-yellow {
   position: absolute;
   top: 0;
@@ -31,5 +50,8 @@ main {
 
 .quiz > * + * {
   margin-top: 3rem;
-  max-width: 768px;
+  max-width: 900px;
+}
+
+.quiz__button {
 }

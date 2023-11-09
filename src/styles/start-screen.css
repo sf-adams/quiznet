@@ -16,21 +16,7 @@
   letter-spacing: 1px;
 }
 
-.start__button {
-  margin-top: 2rem;
-  background-color: #4d5b9e;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  color: #f5f7fb;
-  padding: 1rem 3rem;
-  border: none;
-  border-radius: 1rem;
+.start__button { 
   font-size: 1.25rem;
-  cursor: pointer;
-  transition: transform 200ms ease-in-out, opacity 250ms ease-in-out;
-}
-
-.start__button:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+  padding: 1rem 3rem;
 }

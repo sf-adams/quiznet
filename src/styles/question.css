@@ -18,8 +18,8 @@
 
 .question__item {
   border: 1px solid #4D5B9E;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem 1.25rem;
   cursor: pointer;
 }
 

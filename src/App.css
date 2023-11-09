@@ -31,4 +31,5 @@ main {
 
 .quiz > * + * {
   margin-top: 3rem;
+  max-width: 768px;
 }

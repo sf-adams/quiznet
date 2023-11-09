@@ -1,7 +1,10 @@
 import { decode } from "html-entities";
 import "../styles/question.css";
+import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
 
-export default function Question({ question }) {
+export default function Question({ question, selectAnswer }) {
+  const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const answers = [...question.incorrect_answers, question.correct_answer];
 
   // Fisher-Yates shuffle used to randomise the array
@@ -13,20 +16,30 @@ export default function Question({ question }) {
     return array;
   };
 
-  const randomAnswers = shuffle(answers.slice());
+  useEffect(() => {
+    shuffleArray();
+  }, [])
 
-  const answerElements = randomAnswers.map((answer, index) => (
+  const shuffleArray = () => {
+    const randomAnswers = shuffle(answers.slice());
+    setShuffledAnswers(randomAnswers);
+  }
+
+  const answerElements = shuffledAnswers.map((answer, index) => (
     <li
       className="question__item"
-      // style={{
-      //   backgroundColor:
-      //     answer === question.correct_answer ? "#94D7A2" : "#F8BCBC",
-      // }}
+      style={{
+        backgroundColor:
+          answer === question.selectedAnswer ? "#D6DBF5" : "",
+      }}
       key={index}
+      onClick={() => selectAnswer(answer, question.id)}
     >
       {decode(answer)}
     </li>
   ));
+
+  console.log(question.selectedAnswer);
 
   return (
     <div className="question">

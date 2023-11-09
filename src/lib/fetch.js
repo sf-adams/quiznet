@@ -6,8 +6,8 @@ async function fetchQuestions() {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    const result = await response.json();
-    return result.results;
+    const questions = await response.json();
+    return questions.results;
   } catch (error) {
     console.error("Error fetching data:", error);
   }

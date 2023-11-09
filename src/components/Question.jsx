@@ -18,10 +18,10 @@ export default function Question({ question }) {
   const answerElements = randomAnswers.map((answer, index) => (
     <li
       className="question__item"
-      style={{
-        backgroundColor:
-          answer === question.correct_answer ? "#94D7A2" : "#F8BCBC",
-      }}
+      // style={{
+      //   backgroundColor:
+      //     answer === question.correct_answer ? "#94D7A2" : "#F8BCBC",
+      // }}
       key={index}
     >
       {decode(answer)}

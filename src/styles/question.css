@@ -1,0 +1,28 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.question__title {
+  font-weight: 700;
+}
+
+.question__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 2rem;
+}
+
+.question__item {
+  border: 1px solid #4D5B9E;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.question__line {
+  border-top: 1px solid #DBDEF0;
+}

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { decode } from "html-entities";
 import BlobBlue from "./assets/blob-blue.svg";
 import BlobYellow from "./assets/blob-yellow.svg";
 import StartScreen from "./components/StartScreen";
+import Question from "./components/Question";
 
 function App() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [quizEnded, setQuizEnded] = useState(false);
   const [data, setData] = useState(null);
+  const [questionElements, setQuestionElements] = useState(null);
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -25,24 +26,26 @@ function App() {
         console.error("Error fetching data:", error);
       }
     }
-
     fetchQuestions();
   }, []);
+
+  useEffect(() => {
+    if (quizStarted && data) {
+      const questions = data.results.map((question, index) => (
+        <Question key={index} question={question} />
+      ));
+      setQuestionElements(questions);
+    }
+  }, [quizStarted, data]);
 
   return (
     <main>
       <img className="blob-blue" src={BlobBlue} alt="Blue Blob" />
       <img className="blob-yellow" src={BlobYellow} alt="Yellow Blob" />
-      {quizStarted && data && data.results ? (
-        data.results.map((question, index) => (
-          <div key={index}>
-            <h2>{decode(question.question)}</h2>
-            <p>{decode(question.correct_answer)}</p>
-            <hr />
-          </div>
-        ))
+      {quizStarted ? (
+        <div className="quiz">{questionElements}</div>
       ) : (
-        <StartScreen setQuizStarted={setQuizStarted}/>
+        <StartScreen setQuizStarted={setQuizStarted} />
       )}
     </main>
   );

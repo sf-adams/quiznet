@@ -6,6 +6,7 @@
 body {
   background-color: #f5f7fb;
   font-family: "Karla", sans-serif;
+  color: #293264;
 }
 
 main {
@@ -26,4 +27,8 @@ main {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.quiz > * + * {
+  margin-top: 3rem;
 }

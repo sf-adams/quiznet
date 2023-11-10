@@ -1,0 +1,11 @@
+.quiz > * + * {
+  margin-top: 3rem;
+  max-width: 900px;
+}
+
+.quiz__results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}

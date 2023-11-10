@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import fetchQuestions from "../lib/fetch";
 import Question from "./Question";
 import { nanoid } from "nanoid";
+import "../styles/quiz.css";
 
 function Quiz({ setQuizStarted }) {
   const [questionsArray, setQuestionsArray] = useState([]);
   const [questionElements, setQuestionElements] = useState(null);
   const [gameOver, setGameOver] = useState(false);
-  // const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const fetch = async () => {
@@ -62,6 +63,15 @@ function Quiz({ setQuizStarted }) {
     if (eachQuestionAnswered) {
       setGameOver(true);
 
+      const currentScore = questionsArray.reduce((totalScore, question) => {
+        return (
+          totalScore +
+          (question.selectedAnswer === question.correct_answer ? 1 : 0)
+        );
+      }, 0);
+
+      setScore(currentScore);
+
       setQuestionsArray((prevQuestionsArray) => {
         return prevQuestionsArray.map((question) => ({
           ...question,
@@ -74,6 +84,7 @@ function Quiz({ setQuizStarted }) {
   const resetQuiz = () => {
     setQuizStarted(false);
     setGameOver(false);
+    setScore(0);
   };
 
   return (
@@ -81,8 +92,10 @@ function Quiz({ setQuizStarted }) {
       {questionElements}
 
       {gameOver ? (
-
-        <div>
+        <div className="quiz__results">
+          <h2>
+            You scored {score}/{questionsArray.length} correct answers
+          </h2>
           <button className="button" onClick={resetQuiz}>
             Play Again
           </button>

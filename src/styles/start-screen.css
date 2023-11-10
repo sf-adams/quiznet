@@ -16,7 +16,8 @@
   letter-spacing: 1px;
 }
 
-.start__button { 
+.start__button {
   font-size: 1.25rem;
   padding: 1rem 3rem;
+  margin-top: 2rem;
 }

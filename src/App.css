@@ -18,7 +18,6 @@ main {
 }
 
 .button {
-  margin-top: 2rem;
   background-color: #4d5b9e;
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -39,12 +38,4 @@ main {
 .button:disabled {
   background-color: #c6c5c5;
   cursor: not-allowed;
-}
-
-.quiz > * + * {
-  margin-top: 3rem;
-  max-width: 900px;
-}
-
-.quiz__button {
 }

@@ -1,6 +1,5 @@
 import { decode } from "html-entities";
 import "../styles/question.css";
-import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 
 export default function Question({ question, selectAnswer }) {
@@ -18,28 +17,59 @@ export default function Question({ question, selectAnswer }) {
 
   useEffect(() => {
     shuffleArray();
-  }, [])
+  }, []);
 
   const shuffleArray = () => {
     const randomAnswers = shuffle(answers.slice());
     setShuffledAnswers(randomAnswers);
-  }
+  };
+
+  const answerStyles = (answer) => {
+    const styles = {
+      backgroundColor: "",
+      border: "",
+      opacity: "",
+    };
+
+    if (question.reveal) {
+      if (answer === question.correct_answer) {
+        styles.backgroundColor = "#94d7a2";
+        styles.border = "1px solid #94d7a2";
+      } else if (answer === question.selectedAnswer) {
+        styles.backgroundColor = "#F8BCBC";
+        styles.border = "1px solid #F8BCBC";
+      } else {
+        styles.opacity = "0.5";
+      }
+    } else {
+      styles.backgroundColor =
+        answer === question.selectedAnswer ? "#D6DBF5" : "";
+      styles.border =
+        answer === question.selectedAnswer ? "1px solid #D6DBF5" : "";
+    }
+
+    return styles;
+  };
 
   const answerElements = shuffledAnswers.map((answer, index) => (
     <li
       className="question__item"
-      style={{
-        backgroundColor:
-          answer === question.selectedAnswer ? "#D6DBF5" : "",
-      }}
+      style={
+        question.reveal
+          ? answerStyles(answer)
+          : {
+              backgroundColor:
+                answer === question.selectedAnswer ? "#D6DBF5" : "",
+              border:
+                answer === question.selectedAnswer ? "1px solid #D6DBF5" : "",
+            }
+      }
       key={index}
       onClick={() => selectAnswer(answer, question.id)}
     >
       {decode(answer)}
     </li>
   ));
-
-  console.log(question.selectedAnswer);
 
   return (
     <div className="question">

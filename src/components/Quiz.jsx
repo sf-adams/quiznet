@@ -3,9 +3,11 @@ import fetchQuestions from "../lib/fetch";
 import Question from "./Question";
 import { nanoid } from "nanoid";
 
-function Quiz({ gameOver, setGameOver, resetQuiz }) {
-  const [questionsArray, setQuestionsArray] = useState(null);
+function Quiz({ setQuizStarted }) {
+  const [questionsArray, setQuestionsArray] = useState([]);
   const [questionElements, setQuestionElements] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
+  // const [score, setScore] = useState(0);
 
   useEffect(() => {
     const fetch = async () => {
@@ -16,6 +18,7 @@ function Quiz({ gameOver, setGameOver, resetQuiz }) {
             id: nanoid(),
             ...question,
             selectedAnswer: "",
+            reveal: false,
           };
         })
       );
@@ -51,16 +54,45 @@ function Quiz({ gameOver, setGameOver, resetQuiz }) {
     });
   };
 
+  const eachQuestionAnswered = questionsArray.every(
+    (question) => question.selectedAnswer
+  );
+
+  const checkAnswers = () => {
+    if (eachQuestionAnswered) {
+      setGameOver(true);
+
+      setQuestionsArray((prevQuestionsArray) => {
+        return prevQuestionsArray.map((question) => ({
+          ...question,
+          reveal: true,
+        }));
+      });
+    }
+  };
+
+  const resetQuiz = () => {
+    setQuizStarted(false);
+    setGameOver(false);
+  };
+
   return (
     <div className="quiz">
       {questionElements}
 
       {gameOver ? (
-        <button className="button" onClick={resetQuiz}>
-          Play Again
-        </button>
+
+        <div>
+          <button className="button" onClick={resetQuiz}>
+            Play Again
+          </button>
+        </div>
       ) : (
-        <button className="button" onClick={() => setGameOver(true)}>
+        <button
+          className="button"
+          onClick={checkAnswers}
+          disabled={!eachQuestionAnswered}
+        >
           Check Answers
         </button>
       )}

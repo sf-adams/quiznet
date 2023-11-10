@@ -6,20 +6,12 @@ import BackgroundBlobs from "./components/BackgroundBlobs";
 
 function App() {
   const [quizStarted, setQuizStarted] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
-
-  const resetQuiz = () => {
-    setQuizStarted(false);
-    setGameOver(false);
-  };
 
   return (
     <main>
       {quizStarted ? (
         <Quiz
-          gameOver={gameOver}
-          setGameOver={setGameOver}
-          resetQuiz={resetQuiz}
+          setQuizStarted={setQuizStarted}
         />
       ) : (
         <StartScreen setQuizStarted={setQuizStarted} />

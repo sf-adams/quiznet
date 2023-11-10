@@ -31,9 +31,14 @@ main {
   transition: transform 200ms ease-in-out, opacity 250ms ease-in-out;
 }
 
-.button:hover {
+.button:hover:enabled {
   transform: translateY(-3px);
   opacity: 0.9;
+}
+
+.button:disabled {
+  background-color: #c6c5c5;
+  cursor: not-allowed;
 }
 
 .quiz > * + * {

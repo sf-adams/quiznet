@@ -9,7 +9,7 @@
 
 <!-- BACKGROUND -->
 
-**Quiznet** is an application that aims to help programmers grow and maintain the wide range of information they need in a fun and as easy way. It can either be used with the premade questions, or JSON files of your own.
+**Quiznet** is a small quiz application, built from scratch with the help of designs from Scrimba.
 
 <!-- Hopefully there is a question or two in there that you didn't already know. If there's something that you'd recommend being added, please go to the [contribution](#contributing) section. -->
 
@@ -21,14 +21,12 @@
 
 ## Roadmap
 
-- [ ] Start page
-- [x] Questions for JavaScript and React.js
-- [ ] Topic Selector
-- [ ] Timer
-- [ ] Results page with graphs
+- [x] Start page
+- [x] Quiz page
+- [x] Fetch questions from [API](https://opentdb.com/api_config.php)
+- [ ] Check Answers
+- [ ] Display Results
 - [ ] Choose how many questions/topic
-- [ ] Share results
-- [ ] Fully tested
 - [ ] Mobile responsive
 
 See the [open issues](https://github.com/sf-adams/quiznet/issues) for a full list of proposed features (and known issues).

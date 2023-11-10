@@ -6,39 +6,26 @@ import "../styles/quiz.css";
 
 function Quiz({ setQuizStarted }) {
   const [questionsArray, setQuestionsArray] = useState([]);
-  const [questionElements, setQuestionElements] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    const fetch = async () => {
-      const result = await fetchQuestions();
+    fetchQuestions().then((questions) => {
       setQuestionsArray(
-        result.map((question) => {
+        questions.map((question) => {
           return {
-            id: nanoid(),
             ...question,
+            id: nanoid(),
             selectedAnswer: "",
             reveal: false,
           };
         })
       );
+    });
+    return () => {
+      console.log("Quiz component unmounted");
     };
-    fetch();
   }, []);
-
-  useEffect(() => {
-    if (questionsArray) {
-      const questions = questionsArray.map((question) => (
-        <Question
-          key={question.id}
-          question={question}
-          selectAnswer={selectAnswer}
-        />
-      ));
-      setQuestionElements(questions);
-    }
-  }, [questionsArray]);
 
   const selectAnswer = (answer, id) => {
     setQuestionsArray((prevArray) => {
@@ -86,6 +73,14 @@ function Quiz({ setQuizStarted }) {
     setGameOver(false);
     setScore(0);
   };
+
+  const questionElements = questionsArray.map((question) => (
+    <Question
+      key={question.id}
+      question={question}
+      selectAnswer={selectAnswer}
+    />
+  ));
 
   return (
     <div className="quiz">

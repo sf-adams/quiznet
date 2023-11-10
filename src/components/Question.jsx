@@ -1,6 +1,6 @@
 import { decode } from "html-entities";
 import "../styles/question.css";
-import { useEffect, useState } from "react";
+import { useEffect,useState } from "react";
 
 export default function Question({ question, selectAnswer }) {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
@@ -16,13 +16,9 @@ export default function Question({ question, selectAnswer }) {
   };
 
   useEffect(() => {
-    shuffleArray();
-  }, []);
-
-  const shuffleArray = () => {
     const randomAnswers = shuffle(answers.slice());
     setShuffledAnswers(randomAnswers);
-  };
+  }, []);
 
   const answerStyles = (answer) => {
     const styles = {

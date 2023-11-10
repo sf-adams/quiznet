@@ -1,11 +1,40 @@
+.quiz {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 6rem;
+}
+
 .quiz > * + * {
   margin-top: 3rem;
-  max-width: 900px;
 }
 
 .quiz__results {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .quiz {
+    margin-top: 4rem;
+  }
+
+  .quiz__results {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quiz {
+    margin-top: 2rem;
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .quiz {
+    max-width: 1024px;
+  }
 }

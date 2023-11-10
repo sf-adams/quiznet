@@ -22,9 +22,6 @@ function Quiz({ setQuizStarted }) {
         })
       );
     });
-    return () => {
-      console.log("Quiz component unmounted");
-    };
   }, []);
 
   const selectAnswer = (answer, id) => {

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 .question__title {
@@ -11,6 +11,8 @@
 
 .question__list {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
   padding: 0;
   gap: 2rem;
@@ -25,4 +27,35 @@
 
 .question__line {
   border-top: 1px solid #DBDEF0;
+}
+
+
+/* Media query for 768 pixels to turn the columns into a 2x2 grid */
+@media (min-width: 768px) {
+
+  .question__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .question__item {
+    flex: 0 0 48%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .question__title {
+    text-align: left;
+  }
+
+  .question__list {
+    justify-content: start;
+  }
+
+  .question__item {
+    flex: 0 1 auto;
+  }
 }

@@ -2,27 +2,35 @@ import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import fetchQuestions from "../lib/fetch";
 import Question from "./Question";
+import Loading from "./Loading";
 import "../styles/quiz.css";
 
 function Quiz({ setQuizStarted }) {
   const [questionsArray, setQuestionsArray] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   // Fetch questions when the component mounts
   useEffect(() => {
-    fetchQuestions().then((questions) => {
-      setQuestionsArray(
-        questions.map((question) => {
-          return {
-            ...question,
-            id: nanoid(),
-            selectedAnswer: "",
-            reveal: false,
-          };
-        })
-      );
-    });
+    const fetchData = async () => {
+      try {
+        const questions = await fetchQuestions();
+        setQuestionsArray(
+          questions.map((question) => {
+            return {
+              ...question,
+              id: nanoid(),
+              selectedAnswer: "",
+              reveal: false,
+            };
+          })
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
   // Function to handle answer selection for a question
@@ -86,28 +94,34 @@ function Quiz({ setQuizStarted }) {
   ));
 
   return (
-    <div className="quiz">
-      {questionElements}
-
-      {gameOver ? (
-        <div className="quiz__results">
-          <h2>
-            You scored {score}/{questionsArray.length} correct answers
-          </h2>
-          <button className="button" onClick={resetQuiz}>
-            Play Again
-          </button>
-        </div>
+    <>
+      {loading ? (
+        <Loading />
       ) : (
-        <button
-          className="button"
-          onClick={checkAnswers}
-          disabled={!allQuestionsAnswered}
-        >
-          Check Answers
-        </button>
+        <div className="quiz">
+          {questionElements}
+
+          {gameOver ? (
+            <div className="quiz__results">
+              <h2>
+                You scored {score}/{questionsArray.length} correct answers
+              </h2>
+              <button className="button" onClick={resetQuiz}>
+                Play Again
+              </button>
+            </div>
+          ) : (
+            <button
+              className="button"
+              onClick={checkAnswers}
+              disabled={!allQuestionsAnswered}
+            >
+              Check Answers
+            </button>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 

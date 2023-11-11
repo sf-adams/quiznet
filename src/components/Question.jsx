@@ -16,7 +16,6 @@ export default function Question({ question, selectAnswer }) {
 
   // Shuffle the answers when the question changes
   useEffect(() => {
-    console.log("Run");
     const answers = [...question.incorrect_answers, question.correct_answer]
     const randomAnswers = shuffle(answers.slice());
     setShuffledAnswers(randomAnswers);

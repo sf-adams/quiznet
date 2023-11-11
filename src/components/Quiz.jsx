@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import { nanoid } from "nanoid";
 import fetchQuestions from "../lib/fetch";
 import Question from "./Question";
-import { nanoid } from "nanoid";
 import "../styles/quiz.css";
 
 function Quiz({ setQuizStarted }) {
@@ -9,6 +9,7 @@ function Quiz({ setQuizStarted }) {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
+  // Fetch questions when the component mounts
   useEffect(() => {
     fetchQuestions().then((questions) => {
       setQuestionsArray(
@@ -24,6 +25,7 @@ function Quiz({ setQuizStarted }) {
     });
   }, []);
 
+  // Function to handle answer selection for a question
   const selectAnswer = (answer, id) => {
     setQuestionsArray((prevArray) => {
       return prevArray.map((prevQuestion) => {
@@ -39,12 +41,14 @@ function Quiz({ setQuizStarted }) {
     });
   };
 
-  const eachQuestionAnswered = questionsArray.every(
+  // Check if all questions have been answered
+  const allQuestionsAnswered = questionsArray.every(
     (question) => question.selectedAnswer
   );
 
+  // Function to check answers and reveal correct answers
   const checkAnswers = () => {
-    if (eachQuestionAnswered) {
+    if (allQuestionsAnswered) {
       setGameOver(true);
 
       const currentScore = questionsArray.reduce((totalScore, question) => {
@@ -65,12 +69,14 @@ function Quiz({ setQuizStarted }) {
     }
   };
 
+  // Function to reset the quiz and all necessary states
   const resetQuiz = () => {
     setQuizStarted(false);
     setGameOver(false);
     setScore(0);
   };
 
+  // Render each question
   const questionElements = questionsArray.map((question) => (
     <Question
       key={question.id}
@@ -96,7 +102,7 @@ function Quiz({ setQuizStarted }) {
         <button
           className="button"
           onClick={checkAnswers}
-          disabled={!eachQuestionAnswered}
+          disabled={!allQuestionsAnswered}
         >
           Check Answers
         </button>

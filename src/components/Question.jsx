@@ -1,10 +1,9 @@
+import { useEffect,useState } from "react";
 import { decode } from "html-entities";
 import "../styles/question.css";
-import { useEffect,useState } from "react";
 
 export default function Question({ question, selectAnswer }) {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const answers = [...question.incorrect_answers, question.correct_answer];
 
   // Fisher-Yates shuffle used to randomise the array
   const shuffle = (array) => {
@@ -15,12 +14,16 @@ export default function Question({ question, selectAnswer }) {
     return array;
   };
 
+  // Shuffle the answers when the question changes
   useEffect(() => {
+    console.log("Run");
+    const answers = [...question.incorrect_answers, question.correct_answer]
     const randomAnswers = shuffle(answers.slice());
     setShuffledAnswers(randomAnswers);
-  }, []);
+  }, [question.incorrect_answers, question.correct_answer]);
 
-  const answerStyles = (answer) => {
+  // Function to determine styling based on reveal and user's selection
+  const getAnswerStyles = (answer) => {
     const styles = {
       backgroundColor: "",
       border: "",
@@ -28,6 +31,7 @@ export default function Question({ question, selectAnswer }) {
     };
 
     if (question.reveal) {
+      // Styling for revealed answers
       if (answer === question.correct_answer) {
         styles.backgroundColor = "#94d7a2";
         styles.border = "1px solid #94d7a2";
@@ -38,6 +42,7 @@ export default function Question({ question, selectAnswer }) {
         styles.opacity = "0.5";
       }
     } else {
+      // Styling for unrevealed answers
       styles.backgroundColor =
         answer === question.selectedAnswer ? "#D6DBF5" : "";
       styles.border =
@@ -47,12 +52,13 @@ export default function Question({ question, selectAnswer }) {
     return styles;
   };
 
-  const answerElements = shuffledAnswers.map((answer, index) => (
+  // Map shuffled answers to list items
+  const answerElements = shuffledAnswers.map((answer) => (
     <li
       className="question__item"
       style={
         question.reveal
-          ? answerStyles(answer)
+          ? getAnswerStyles(answer)
           : {
               backgroundColor:
                 answer === question.selectedAnswer ? "#D6DBF5" : "",
@@ -60,7 +66,7 @@ export default function Question({ question, selectAnswer }) {
                 answer === question.selectedAnswer ? "1px solid #D6DBF5" : "",
             }
       }
-      key={index}
+      key={answer}
       onClick={() => selectAnswer(answer, question.id)}
     >
       {decode(answer)}

@@ -2,20 +2,13 @@
 
 # Quiznet
 
-![Banner](https://github.com/sf-adams/quiznet/assets/35069870/60fbf66e-f37b-4c9b-8d0b-b272c2a3f392)
+![Banner](./public/quiznet-banner.png)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 <!-- BACKGROUND -->
 
 **Quiznet** is a small quiz application, built from scratch with the help of designs from Scrimba.
-
-<!-- Hopefully there is a question or two in there that you didn't already know. If there's something that you'd recommend being added, please go to the [contribution](#contributing) section. -->
-
-<!-- SCREENSHOT -->
-
-<!-- ![](./screenshot.jpg) -->
 
 <!-- FEATURES -->
 
@@ -24,10 +17,9 @@
 - [x] Start page
 - [x] Quiz page
 - [x] Fetch questions from [API](https://opentdb.com/api_config.php)
-- [ ] Check Answers
-- [ ] Display Results
-- [ ] Choose how many questions/topic
-- [ ] Mobile responsive
+- [x] Check Answers
+- [x] Display Results
+- [x] Mobile responsive
 
 See the [open issues](https://github.com/sf-adams/quiznet/issues) for a full list of proposed features (and known issues).
 
@@ -51,22 +43,19 @@ After completing that step, in the command line:
 
 ## Author
 
-[![Website][website-shield]][website-url]
+[![Portfolio][portfolio-shield]][portfolio-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Medium][medium-shield]][medium-url]
-[![Codepen][codepen-shield]][codepen-url]
-[![GitHub][github-shield]][github-url]
+[![YouTube][youtube-shield]][youtube-url]
 
-[website-shield]: https://img.shields.io/badge/Sam%20Adams-FFD300?style=for-the-badge&logo=aboutdotme&logoColor=242424
-[website-url]: https://sf-adams.com
+[portfolio-shield]: https://img.shields.io/badge/Portfolio-FFD300?style=for-the-badge&logo=aboutdotme&logoColor=242424
+[portfolio-url]: https://sf-adams.com
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-FFD300?style=for-the-badge&logo=linkedin&logoColor=242424
 [linkedin-url]: https://linkedin.com/in/sf-adams
 [medium-shield]: https://img.shields.io/badge/Medium-FFD300?style=for-the-badge&logo=medium&logoColor=242424
 [medium-url]: https://medium.com/@sf-adams
-[codepen-shield]: https://img.shields.io/badge/CodePen-FFD300?style=for-the-badge&logo=codepen&logoColor=242424
-[codepen-url]: https://codepen.io/sf-adams
-[github-shield]: https://img.shields.io/badge/GitHub-FFD300?style=for-the-badge&logo=github&logoColor=242424
-[github-url]: https://github.io/sf-adams
+[youtube-shield]: https://img.shields.io/badge/YouTube-FFD300?style=for-the-badge&logo=youtube&logoColor=242424
+[youtube-url]: https://youtube.io/sf-adams
 
 <!-- LICENSE -->
 
@@ -78,13 +67,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgements
 
-This project was inspired by [PassMedicine](https://www.passmedicine.com/) a resource that is used by thousands of medical students from across the United Kingdom. If it could work for them, then hopefully something similar would work for developers.
+This project was designed by [Scrimba](https://www.passmedicine.com/), which gave me a clear idea of what the desktop design should look like.
 
-Other inspiration and references include:
+Other inspiration, references and honourable mentions include:
 
-- [FreeCodeCamp Developer Quiz](https://developerquiz.org/)
-- [Dribbble Quiz Design](https://dribbble.com/shots/17815087-Audible-Utility-Quiz)
-- [he](https://www.npmjs.com/package/he) and [html-entities](https://www.npmjs.com/package/html-entities)
+- [html-entities](https://www.npmjs.com/package/html-entities)
 - [Open Trivia API](https://opentdb.com/api_config.php)
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
